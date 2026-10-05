@@ -37,6 +37,7 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <h3>b) Payment information read from your phone (with your permission)</h3>
 <p><strong>Bank SMS (SMS permission).</strong> With your permission (READ_SMS, RECEIVE_SMS), the App checks incoming SMS on your phone and keeps only <em>credit / payment-received</em> messages sent by banks. All other SMS – personal messages, OTPs, promotions, debit and EMI alerts – are ignored on your phone and are not uploaded.</p>
 <p><strong>Payment app notifications (Notification access).</strong> With your permission, the App reads notifications from payment and banking apps (such as Google Pay, PhonePe, Paytm, BHIM, bank apps and their business versions) and from your SMS/messaging app, and keeps only “payment received” notifications. Notifications from chat, social media and other apps are ignored on your phone.</p>
+<p>Messages and notifications that are not payment-received alerts are checked only momentarily on your phone and immediately discarded – they are never saved or uploaded. Galla Petti does not provide loans, credit lead generation or credit scoring, and never uses SMS or payment data for those purposes.</p>
 <p>From each accepted payment message or notification we store:</p>
 <ul>
 <li>amount, date and time; transaction reference (UTR / RRN / UPI reference) when present;</li>
@@ -48,7 +49,7 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <h3>c) Device and app information</h3>
 <ul>
 <li>An <strong>app-generated device ID</strong> (to manage linked devices) and a <strong>Firebase Cloud Messaging token</strong> (to deliver payment voice alerts to your linked devices).</li>
-<li><strong>SIM slot selection</strong> (phone state permission) – used on your phone to match a bank SMS to the correct account when you use two SIMs.</li>
+<li><strong>SIM slot selection</strong> (phone state permission) – used only on your phone to tell SIM 1 from SIM 2 so a bank SMS is matched to the correct account. We do not collect or upload hardware identifiers such as IMEI or IMSI, or your carrier details.</li>
 <li><strong>Crash and problem reports</strong> – kept on your phone only; shared with us only if you send them.</li>
 </ul>
 
@@ -82,16 +83,16 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 
 <h2>4. Storage, security and retention</h2>
 <ul>
-<li>Data is sent over encrypted connections (HTTPS) and stored on secured cloud servers with access controls.</li>
+<li>All data between the App and our cloud servers (Supabase) is encrypted in transit using TLS (HTTPS), and stored on secured cloud servers with access controls.</li>
 <li>No method of storage or transmission is 100% secure, but we work to protect your data and will inform you as required by law if a breach affects you.</li>
-<li>We keep your data while your account is active. After a verified deletion request we delete it within 30 days (see <a href="delete-account.html">Delete Account</a>), except purchase records that tax/accounting law requires us to keep (up to 8 years).</li>
+<li>We keep your data while your account is active. Deleting an account you own in the App deletes its payment book, linked devices and device tokens from our servers automatically (normally within hours, always within 30 days); email requests are completed within 30 days. A minimal account record with plan, purchase and referral-reward history is kept up to 8 years for tax, accounting and fraud prevention. Details: <a href="delete-account.html">Delete Account</a>.</li>
 </ul>
 
 <h2>5. Your choices and rights</h2>
 <ul>
 <li><strong>Permissions:</strong> you can turn off SMS, notification access and other permissions anytime in Android settings. Automatic recording and voice alerts will then stop.</li>
 <li><strong>Access and correction:</strong> your payment book is visible in the App; email us to correct account details.</li>
-<li><strong>Deletion:</strong> Settings → Delete Account in the App, or email us – see <a href="delete-account.html">Delete Account</a>.</li>
+<li><strong>Deletion:</strong> Settings → Delete Account in the App (deletes server data automatically), or email us. You can also ask us to delete only your transaction history while keeping your account – see <a href="delete-account.html">Delete Account</a>.</li>
 <li><strong>Withdraw consent / grievances:</strong> under India’s Digital Personal Data Protection Act, 2023 and the IT Act, 2000, you may withdraw consent, request correction or erasure, and raise a grievance with our Grievance Officer (below). You may also approach the Data Protection Board of India.</li>
 </ul>
 
@@ -100,10 +101,10 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <tr><th>Permission</th><th>Why</th></tr>
 <tr><td>SMS (receive/read)</td><td>Record bank “payment received” SMS automatically</td></tr>
 <tr><td>Notification access</td><td>Record “payment received” notifications from payment/bank apps</td></tr>
-<tr><td>Phone state / phone numbers</td><td>Match SMS to the right account on dual-SIM phones</td></tr>
+<tr><td>Phone state / phone numbers</td><td>On the phone only: tell SIM 1 from SIM 2 to match SMS to the right account (no IMEI/IMSI collected)</td></tr>
 <tr><td>Notifications</td><td>Show the “active” status and daily summaries</td></tr>
 <tr><td>Alarms &amp; reminders</td><td>Send summaries exactly at 8:30 AM and 8:30 PM</td></tr>
-<tr><td>Foreground service, run at startup, ignore battery optimisation</td><td>Keep real-time payment alerts working when the App is closed</td></tr>
+<tr><td>Foreground service, run at startup, ignore battery optimisation</td><td>Keep payment-notification listening active and play voice alerts without interruption when the App is in the background</td></tr>
 <tr><td>Full-screen notification (optional)</td><td>Show the daily summary screen, if you allow it</td></tr>
 <tr><td>Biometric</td><td>Optional fingerprint/face app lock – checked by your phone, never sent to us</td></tr>
 </table>
