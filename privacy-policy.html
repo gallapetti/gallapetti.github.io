@@ -18,9 +18,9 @@ footer{text-align:center;color:#5d6f68;font-size:13px;padding:20px}
 <nav><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="delete-account.html">Delete Account</a></nav>
 <main><h1>Privacy Policy</h1>
 <p class="meta">App: <strong>Galla Petti – UPI Payment Book</strong> (package com.gallapetti.app)<br>
-Last updated: 5 October 2026 · Effective: 5 October 2026</p>
+Last updated: 30 October 2026 · Effective: 30 October 2026</p>
 
-<p>This Privacy Policy explains what information the Galla Petti app (“Galla Petti”, “the App”, “we”, “us”) collects, why, how it is used and protected, who it is shared with, and the choices you have. The App is operated by <strong>Vadde Kavya</strong>, Hyderabad, Telangana, India. It applies to everyone who uses the App (“you”, “merchant”).</p>
+<p>This Privacy Policy explains what information the Galla Petti app (“Galla Petti”, “the App”, “we”, “us”) collects, why, how it is used and protected, who it is shared with, and the choices you have. The App is operated by <strong>Budde Bharath Kumar</strong>, Hyderabad, Telangana, India. It applies to everyone who uses the App (“you”, “merchant”).</p>
 
 <div class="box"><strong>In short:</strong> Galla Petti reads only <em>payment</em> messages and <em>payment</em> notifications on your phone to build your business payment book. Personal chats, OTPs and promotional messages are filtered out on your phone and are never uploaded. We do not sell your data, show ads, or use your data for profiling.</div>
 
@@ -48,7 +48,7 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 
 <h3>c) Device and app information</h3>
 <ul>
-<li>An <strong>app-generated device ID</strong> (to manage linked devices) and a <strong>Firebase Cloud Messaging token</strong> (to deliver payment voice alerts to your linked devices).</li>
+<li>A <strong>device ID</strong> created from Android’s app-specific ID (ANDROID_ID) (to manage linked devices) and a <strong>Firebase Cloud Messaging token</strong> (to deliver payment voice alerts to your linked devices).</li>
 <li><strong>SIM slot selection</strong> (phone state permission) – used only on your phone to tell SIM 1 from SIM 2 so a bank SMS is matched to the correct account. We do not collect or upload hardware identifiers such as IMEI or IMSI, or your carrier details.</li>
 <li><strong>Crash and problem reports</strong> – kept on your phone only; shared with us only if you send them.</li>
 </ul>
@@ -77,7 +77,7 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <tr><td>Supabase (cloud database &amp; servers)</td><td>Store your account and payment book</td><td>Account, transaction and linked-device data</td></tr>
 <tr><td>Google Firebase Cloud Messaging</td><td>Deliver voice alerts to linked devices</td><td>Device token, alert amount</td></tr>
 <tr><td>Google Play Billing</td><td>Subscription purchases</td><td>Purchase details (handled by Google)</td></tr>
-<tr><td>2Factor (SMS gateway)</td><td>Send login OTP SMS</td><td>Mobile number, OTP</td></tr>
+<tr><td>2Factor (SMS / voice OTP gateway)</td><td>Send the login OTP by SMS or voice call</td><td>Mobile number, OTP</td></tr>
 </table>
 <p>People you link to your account (staff, family) can see that account’s payments. We may disclose information if required by law, court order or a government authority, or to protect users and the service from fraud.</p>
 
@@ -85,7 +85,8 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <ul>
 <li>All data between the App and our cloud servers (Supabase) is encrypted in transit using TLS (HTTPS), and stored on secured cloud servers with access controls.</li>
 <li>No method of storage or transmission is 100% secure, but we work to protect your data and will inform you as required by law if a breach affects you.</li>
-<li>We keep your data while your account is active. Deleting an account you own in the App deletes its payment book, linked devices and device tokens from our servers automatically (normally within hours, always within 30 days); email requests are completed within 30 days. A minimal account record with plan, purchase and referral-reward history is kept up to 8 years for tax, accounting and fraud prevention. Details: <a href="delete-account.html">Delete Account</a>.</li>
+<li>We keep your data while your account is active. Deleting an account you own in the App deletes its payment book, linked devices and device tokens from our servers automatically (normally within hours, always within 30 days); email requests are completed within 30 days. The Supabase login of that number and its referral data are deleted too. Only paid Google Play purchase records are kept, up to 8 years for tax and accounting, with the mobile number removed; and a one-way coded value of the number that only shows the free trial was already used (fraud prevention; it cannot be read back as your number). Details: <a href="delete-account.html">Delete Account</a>.</li>
+<li><strong>Inactive accounts:</strong> if an account has no activity for 180 days (no payment recorded and the App not opened on any linked phone), we notify you in the App at 150 days and every day from 175 days, and delete the account and its data at 180 days – never earlier than 30 days after the first notice. Opening the App once keeps the account. This protects you if an unused mobile number is deactivated and later given to another person.</li>
 </ul>
 
 <h2>5. Your choices and rights</h2>
@@ -101,11 +102,11 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <tr><th>Permission</th><th>Why</th></tr>
 <tr><td>SMS (receive/read)</td><td>Record bank “payment received” SMS automatically</td></tr>
 <tr><td>Notification access</td><td>Record “payment received” notifications from payment/bank apps</td></tr>
-<tr><td>Phone state / phone numbers</td><td>On the phone only: tell SIM 1 from SIM 2 to match SMS to the right account (no IMEI/IMSI collected)</td></tr>
+<tr><td>Phone state</td><td>On the phone only: tell SIM 1 from SIM 2 to match SMS to the right account (no IMEI/IMSI collected)</td></tr>
 <tr><td>Notifications</td><td>Show the “active” status and daily summaries</td></tr>
 <tr><td>Alarms &amp; reminders</td><td>Send summaries exactly at 8:30 AM and 8:30 PM</td></tr>
 <tr><td>Foreground service, run at startup, ignore battery optimisation</td><td>Keep payment-notification listening active and play voice alerts without interruption when the App is in the background</td></tr>
-<tr><td>Full-screen notification (optional)</td><td>Show the daily summary screen, if you allow it</td></tr>
+<tr><td>Full-screen notification (optional)</td><td>Show the 8:30 AM / 8:30 PM business summary once on screen (closed with one tap) instead of filling your notifications – only if you allow it; otherwise it is a normal notification</td></tr>
 <tr><td>Biometric</td><td>Optional fingerprint/face app lock – checked by your phone, never sent to us</td></tr>
 </table>
 
@@ -116,7 +117,7 @@ Last updated: 5 October 2026 · Effective: 5 October 2026</p>
 <p>We may update this policy. The “Last updated” date will change, and important changes will be shown in the App.</p>
 
 <h2>9. Contact and Grievance Officer</h2>
-<p>Grievance Officer: <strong>Vadde Kavya</strong><br>
+<p>Grievance Officer: <strong>Budde Bharath Kumar</strong><br>
 Email: <a href="mailto:gallapetti.galla@gmail.com">gallapetti.galla@gmail.com</a><br>
 Location: Hyderabad, Telangana, India<br>
 We acknowledge complaints within 48 hours and resolve them within 30 days.</p>
